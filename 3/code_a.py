@@ -16,10 +16,7 @@ with open('./3/input_a.txt', 'r') as f:
 trees = countTrees(grid,1,3,0,0)
 print(f'Part a: {trees} trees')
 
-moves = [[1,1],[1,3],[1,5],[1,7],[2,1]]
 trees = 1
-for move in moves:
-    moveTrees = countTrees(grid,move[0],move[1],0,0)
-    print(f'Part b: {moveTrees} for move {move[1]},{move[0]}')
-    trees *= moveTrees
+moves = [[1,1],[1,3],[1,5],[1,7],[2,1]]
+for move in moves: trees *= countTrees(grid,move[0],move[1],0,0)
 print(f'Part b: {trees} total trees')
