@@ -15,10 +15,8 @@ for ticket in input:
     seat = getSeat(0,8, ticket[7:])
     seats[row * 8 + seat] = 1
 
-seat = 0
-for i in range(1,max(seats)):
-    if i not in seats and i - 1 in seats and i + 1 in seats:
-        seat = i
+missingSeat = lambda i: i not in seats and i - 1 in seats and i + 1 in seats
+seat = list(filter(missingSeat, range(1, max(seats))))[0]
 
 print(f'Part A: max seat number: {max(seats)}')
 print(f'Part B: missing seat number: {seat}')
