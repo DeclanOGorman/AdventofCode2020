@@ -1,9 +1,9 @@
 def getSeat(lower, upper, ticket):
-    if ticket[0] == 'F' or ticket[0] == 'L': upper = lower + ((upper-lower)/2)
-    else: lower = lower + ((upper-lower)/2)
-
-    if len(ticket) == 1: return int(lower)
-    else: return getSeat(lower, upper, ticket[1:])
+    if len(ticket) == 0: return int(lower)
+    elif ticket[0] == 'F' or ticket[0] == 'L': 
+        return getSeat(lower, lower + ((upper-lower)/2), ticket[1:])
+    else: 
+        return getSeat(lower + ((upper-lower)/2), upper, ticket[1:]) 
 
 input = []
 with open('./5/input_a.txt', 'r') as f:
