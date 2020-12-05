@@ -1,4 +1,3 @@
-
 import re
 
 def isValid(passport, requiredFields, checkField = False):
