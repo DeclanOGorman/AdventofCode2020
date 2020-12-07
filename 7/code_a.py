@@ -1,5 +1,3 @@
-import re
-
 def expandBranch(rules, bagsFound, bag, num = 1):
     bagsFound.append(bag)
     val = num
