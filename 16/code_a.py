@@ -1,4 +1,3 @@
-from os import O_APPEND
 import re
 
 with open('./16/input_a.txt', 'r') as f:
