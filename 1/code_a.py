@@ -1,10 +1,5 @@
-# https://adventofcode.com/2020/day/1
-
-print('starting...')
-input = []
 with open('./1/input_a.txt', 'r') as f:
-    for line in f:
-        input.append(int(line.strip()))
+    input = [int(line.strip()) for line in f]
 
 # yes, i know theres a more efficient way than O(n^2)
 for num1 in input:
