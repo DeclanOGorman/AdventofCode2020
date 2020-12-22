@@ -1,16 +1,13 @@
 with open('./22/input_a.txt') as f:
     input = [int(a.strip()) for a in f if ':' not in a and not a.strip() == '']
-    p1, p2 = input[:len(input)//2], input[len(input)//2:]
-
+    
 def hash(p1, p2, sep = 1):
     offset = len(p1) + len(p2)*sep
     return sum([(offset - i) * a for i,a in enumerate(p2 + p1)])
 
 def playGame(p1, p2, game, recurse = False):
     history = []
-    round = 0
     while len(p1) > 0 and len(p2) > 0:
-        round += 1
         if recurse and hash(p1,p2,1000) in history: return True
         history.append(hash(p1,p2,1000))
         c1, c2 = p1[0], p2[0]
@@ -24,6 +21,7 @@ def playGame(p1, p2, game, recurse = False):
     if game == 1: return hash(p1, p2)
     return len(p1) > 0
 
+p1, p2 = input[:len(input)//2], input[len(input)//2:]
 print(f'Part A: sum of cards = {playGame(p1, p2, 1, False)}')
 
 p1, p2 = input[:len(input)//2], input[len(input)//2:]
