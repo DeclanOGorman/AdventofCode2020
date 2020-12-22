@@ -18,8 +18,7 @@ def playGame(p1, p2, game, recurse = False):
         if p1Wins: p1.extend([c1, c2])
         else: p2.extend([c2, c1])
         p1, p2 = p1[1:], p2[1:]
-    if game == 1: return hash(p1, p2)
-    return len(p1) > 0
+    return len(p1) > 0 if game > 1 else hash(p1, p2)
 
 p1, p2 = input[:len(input)//2], input[len(input)//2:]
 print(f'Part A: sum of cards = {playGame(p1, p2, 1, False)}')
